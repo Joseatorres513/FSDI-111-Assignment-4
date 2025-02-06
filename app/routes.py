@@ -38,14 +38,11 @@ def update_task(pk):
 # @app.post
 
 @app.post("/tasks")
-def create_task(pk):
+def create_task():
     task_data = request.json
-    create_task = task.insert(task_data,pk)
-    out = {
-        "name": create_task,
-        "ok": True
-    }
-    return out
+    task.insert(task_data)
+
+    return "", 204
 
 #@app.delete
 
